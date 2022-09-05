@@ -900,7 +900,7 @@ EC0005_BUTTONS=[
 EC0006_TEXT=''
 
 
-@bot.on_message(filters.regex('menu')) #start
+@bot.on_message(filters.regex('menu')& filters.group) #start
 def start(bot, message):
     text = START_MESSAGE
     reply_markup = InlineKeyboardMarkup(START_BUTTONS)
