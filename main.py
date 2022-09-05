@@ -1399,22 +1399,6 @@ def inline_query(client, inline_query):
                 ),
                 reply_markup=InlineKeyboardMarkup(START_BUTTONS)
             ),
-            InlineQueryResultArticle(
-                title="ICT A/L PAST PAPERS",
-                description="🔥2011-2020 ICT පසුගිය ප්‍රශ්නපත්‍ර🔥",
-                input_message_content=InputTextMessageContent(
-                    "🔥2011-2020 ICT පසුගිය ප්‍රශ්නපත්‍ර🔥\n\n⭕️⭕️All Credits Goes To Rightful Owners. No Copyright Infringement Intended.⭕️⭕️"
-                ),
-                reply_markup=InlineKeyboardMarkup(A0022_BUTTONS)
-            ),
-            InlineQueryResultArticle(
-                title="ICT A/L MARKINGS",
-                description="🔥2011-2020 ICT පිලිතුරුපත්‍ර🔥",
-                input_message_content=InputTextMessageContent(
-                    "🔥2011-2020 ICT පිලිතුරුපත්‍ර🔥\n\n⭕️⭕️All Credits Goes To Rightful Owners. No Copyright Infringement Intended.⭕️⭕️"
-                ),
-                reply_markup=InlineKeyboardMarkup(A0023_BUTTONS)
-            ),
         ],
         cache_time=1
     )
