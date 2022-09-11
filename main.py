@@ -711,7 +711,13 @@ M0001_BOTTONS=[
     [InlineKeyboardButton('START MENU',callback_data='A0001')],
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
-
+M0002_BUTTONS=[
+    [InlineKeyboardButton('අවකලනය',url='https://t.me/ictstudenthelper/652'),InlineKeyboardButton('අනුකලනය',url='https://t.me/ictstudenthelper/653')],
+    [InlineKeyboardButton('⬅️BACK',callback_data='A0005'),InlineKeyboardButton('SUBJECT MENU',callback_data='A0001')],
+    [InlineKeyboardButton('START MENU',callback_data='A0001')],
+    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
+]
+M0002_TEXT="Maths Notes"
 M0003_BUTTONS=[
     [InlineKeyboardButton('1990 ප්‍රශ්නපත්‍රය',url='https://t.me/ictstudenthelper/421'),InlineKeyboardButton('1991 ප්‍රශ්නපත්‍රය',url='https://t.me/ictstudenthelper/423')],
     [InlineKeyboardButton('1992 ප්‍රශ්නපත්‍රය',url='https://t.me/ictstudenthelper/425'),InlineKeyboardButton('1993 ප්‍රශ්නපත්‍රය',url='https://t.me/ictstudenthelper/427')],
@@ -1216,6 +1222,17 @@ async def callback_query(client: Client, query: CallbackQuery):
             )
         except MessageNotModified:
             pass
+        
+    elif query.data=='M0001':
+        reply_markup=InlineKeyboardMarkup(M0001_BUTTONS)
+        try:
+            await query.edit_message_text(
+                M0001_TEXT,
+                reply_markup=reply_markup
+            )
+        except MessageNotModified:
+            pass
+        
     elif query.data=='MA':
         reply_markup=InlineKeyboardMarkup(MA_BUTTONS)
         try:
