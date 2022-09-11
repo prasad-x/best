@@ -1223,11 +1223,11 @@ async def callback_query(client: Client, query: CallbackQuery):
         except MessageNotModified:
             pass
         
-    elif query.data=='M0001':
-        reply_markup=InlineKeyboardMarkup(M0001_BUTTONS)
+    elif query.data=='M0002':
+        reply_markup=InlineKeyboardMarkup(M0002_BUTTONS)
         try:
             await query.edit_message_text(
-                M0001_TEXT,
+                M0002_TEXT,
                 reply_markup=reply_markup
             )
         except MessageNotModified:
