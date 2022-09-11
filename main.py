@@ -1,4 +1,5 @@
 from re import I
+from datetime import datetime
 from subprocess import call
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
@@ -915,7 +916,50 @@ def start(bot, message):
         reply_markup=reply_markup,
         disable_web_page_preview=True
     )
+@bot.on_message(filters.regex('al')) #start
+def start(bot, message):
+    text = 'Count down timer'
+    reply_markup = InlineKeyboardMarkup(time_buttons)
+    message.reply(
+        text=text,
+        reply_markup=reply_markup,
+        disable_web_page_preview=True
+    )
 
+time_buttons=[
+    [InlineKeyboardButton('A/l Count down timer',callback_data='update')]
+]
+update_buttons=[
+    [InlineKeyboardButton('UPDATE TIME',callback_data="update")]
+]    
+
+@bot.on_callback_query()
+async def callback_query(client: Client, query: CallbackQuery):
+    if query.data=="update":
+            global stoptimer
+            dt1 = datetime.now()
+            dt2 = datetime(2022,12,5,00,00,00)
+            dt3 = int((dt2 - dt1).total_seconds())
+            user_input_time = dt3
+            user_input_event = str("🔥🔥උසස් පෙළ විභාගයට තව🔥🔥")
+            if user_input_time>0:
+                if user_input_time>0 and user_input_time!=0:
+                    d=user_input_time//(3600*24)
+                    h=user_input_time%(3600*24)//3600
+                    m=user_input_time%3600//60
+                    s=user_input_time%60
+                    Countdown_TeLe_TiPs='{}\n\n⏳ **දින** {:02d}**යි**  **පැය** {:02d}**යි** **මිනිත්තු** {:02d}**යි**  **තත්පර** {:02d}**ක** කාලයක් තිබෙයි.\n\n@PrasadAssistantbot'.format(user_input_event, d, h, m, s)
+                    update_text=str(Countdown_TeLe_TiPs)
+                    reply_markup = InlineKeyboardMarkup(update_buttons)
+                    try:
+                        await query.edit_message_text(
+                            update_text,
+                            reply_markup=reply_markup
+                        )
+                    except MessageNotModified:
+                        pass
+
+                    
 @bot.on_callback_query()
 async def callback_query(client: Client, query: CallbackQuery):
     if query.data=="A0001":
