@@ -1407,7 +1407,7 @@ async def callback_query(client: Client, query: CallbackQuery):
                 
 
 
-@bot.on_inline_query(filters.private)
+@bot.on_inline_query()
 def inline_query(client, inline_query):
     inline_query.answer(
         results=[
