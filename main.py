@@ -1464,6 +1464,14 @@ def inline_query(client, inline_query):
                 ),
                 reply_markup=InlineKeyboardMarkup(START_BUTTONS)
             ),
+            InlineQueryResultArticle(
+                title="Count Down",
+                description="🔥උසස් පෙළ විභාගයට තව🔥",
+                input_message_content=InputTextMessageContent(
+                    "🔥උසස් පෙළ විභාගයට තව🔥"
+                ),
+                reply_markup=InlineKeyboardMarkup(update_buttons)
+            ),
         ],
         cache_time=1
     )
