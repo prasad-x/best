@@ -1,6 +1,5 @@
 from re import I
 from datetime import datetime
-from subprocess import call
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, input_message_content, user_and_chats ,ReplyKeyboardMarkup ,ReplyKeyboardRemove
@@ -33,14 +32,14 @@ bot = Client(
 
 
 
-START_MESSAGE='Group menu'
-A0001_TEXT='Subject menu'
-A0003_TEXT='secound menu'
-A0004_TEXT='ICT MENU'
-A0005_TEXT='MATHS MENU'
-A0006_TEXT='PHYSICS MENU'
-A0007_TEXT='BIOLOGY MENU'
-A0008_TEXT='ET MENU'
+START_MESSAGE='🔥Group menu🔥'
+A0001_TEXT='🔥Subject menu🔥'
+A0003_TEXT='🔥secound menu🔥'
+A0004_TEXT='🔥ICT MENU🔥'
+A0005_TEXT='🔥MATHS MENU🔥'
+A0006_TEXT='🔥PHYSICS MENU🔥'
+A0007_TEXT='🔥BIOLOGY MENU🔥'
+A0008_TEXT='🔥ET MENU🔥'
 A0009_TEXT='SFT MENU'
 A0010_TEXT='ICT PAPERS'
 A0011_TEXT='ICT NOTES & OTHERS'
@@ -812,7 +811,7 @@ B00002_TEXT='build in progress🛠'
 
 B0002_BUTTONS=[
     [InlineKeyboardButton('Bio Resource Books (OLD)22/23',callback_data='B00100')],
-    [InlineKeyboardButton('Bio Resource Books (2024)',url='https://t.me/BioVideoFullSyllubus/313')],
+    [InlineKeyboardButton('Bio Resource Books (2024)',callback_data='B00101')],
     [InlineKeyboardButton('⬅️BACK',callback_data='A0007')],
     [InlineKeyboardButton('SUBJECT MENU',callback_data='A0001'),InlineKeyboardButton('START MENU',callback_data='A0001')],
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
@@ -823,33 +822,44 @@ B0003_BUTTONS=[
     [InlineKeyboardButton('🛑🛑JOIN THIS CHANNEL FIRST🛑🛑',url='https://t.me/+o_q1TD3vf15iZjI9')],
     [InlineKeyboardButton('☘️ජීව විද්‍යාව හැදින්වීම☘️',url='https://t.me/c/1503476377/2')],
     [InlineKeyboardButton('☘️පරිනාමය හා ජීවීන්ගේ විවිධත්වය☘️',url='https://t.me/c/1503476377/16')],
-    [InlineKeyboardButton('ශාක ආකාරය හා ක්‍රියාකාරීත්වය',url='https://t.me/c/1503476377/25')],
-    [InlineKeyboardButton('ප්‍රවේනිය',url='https://t.me/c/1503476377/38')],
-    [InlineKeyboardButton('අනුක ජීව විද්‍යාව හා ප්‍රතිසංයෝජිත DNA තාක්ෂණය',url='https://t.me/c/1503476377/44')],
-    [InlineKeyboardButton('පාරිසරික ජීව විද්‍යාව',url='https://t.me/c/1503476377/53')],
-    [InlineKeyboardButton('ක්ෂුද්‍ර ජීව විද්‍යාව',url='https://t.me/c/1503476377/63')],
-    [InlineKeyboardButton('ව්‍යහාරික විද්‍යාව ',url='https://t.me/c/1503476377/73')],
-    [InlineKeyboardButton('සත්ත්ව පටක',url='https://t.me/c/1503476377/87')],
-    [InlineKeyboardButton('සත්ත්ව පෝෂනය',url='https://t.me/c/1503476377/90')],
-    [InlineKeyboardButton('සතුන්ගේ රුධිර සංසරනය හා ශ්වසනය',url='https://t.me/c/1503476377/95')],
-    [InlineKeyboardButton('ප්‍රතිශක්තිය',url='https://t.me/c/1503476377/101')],
-    [InlineKeyboardButton('බහිස්‍රාවය',url='https://t.me/c/1503476377/104')],
+    [InlineKeyboardButton('☘️ශාක ආකාරය හා ක්‍රියාකාරීත්වය☘️',url='https://t.me/c/1503476377/25')],
+    [InlineKeyboardButton('☘️ප්‍රවේනිය☘️',url='https://t.me/c/1503476377/38')],
+    [InlineKeyboardButton('☘️අනුක ජීව විද්‍යාව හා ප්‍රතිසංයෝජිත DNA තාක්ෂණය☘️',url='https://t.me/c/1503476377/44')],
+    [InlineKeyboardButton('☘️පාරිසරික ජීව විද්‍යාව☘️',url='https://t.me/c/1503476377/53')],
+    [InlineKeyboardButton('☘️ක්ෂුද්‍ර ජීව විද්‍යාව☘️',url='https://t.me/c/1503476377/63')],
+    [InlineKeyboardButton('☘️ව්‍යහාරික විද්‍යාව ☘️',url='https://t.me/c/1503476377/73')],
+    [InlineKeyboardButton('☘️සත්ත්ව පටක☘️',url='https://t.me/c/1503476377/87')],
+    [InlineKeyboardButton('☘️සත්ත්ව පෝෂනය☘️',url='https://t.me/c/1503476377/90')],
+    [InlineKeyboardButton('☘️සතුන්ගේ රුධිර සංසරනය හා ශ්වසනය☘️',url='https://t.me/c/1503476377/95')],
+    [InlineKeyboardButton('☘️ප්‍රතිශක්තිය☘️',url='https://t.me/c/1503476377/101')],
+    [InlineKeyboardButton('☘️බහිස්‍රාවය☘️',url='https://t.me/c/1503476377/104')],
     [InlineKeyboardButton('⬅️BACK',callback_data='A0007')],
     [InlineKeyboardButton('SUBJECT MENU',callback_data='A0001'),InlineKeyboardButton('START MENU',callback_data='A0001')],
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
 
 B00100_BUTTONS=[
-    [InlineKeyboardButton('Unit 1',url='https://t.me/ictstudenthelper/594'),InlineKeyboardButton('Unit 2',url='https://t.me/ictstudenthelper/595')],
-    [InlineKeyboardButton('Unit 3',url='https://t.me/ictstudenthelper/596'),InlineKeyboardButton('Unit 4',url='https://t.me/ictstudenthelper/598')],
-    [InlineKeyboardButton('Unit 5',url='https://t.me/ictstudenthelper/598'),InlineKeyboardButton('Unit 6',url='https://t.me/ictstudenthelper/601')],
-    [InlineKeyboardButton('Unit 7',url='https://t.me/ictstudenthelper/602'),InlineKeyboardButton('Unit 8',url='https://t.me/ictstudenthelper/603')],
-    [InlineKeyboardButton('Unit 9',url='https://t.me/ictstudenthelper/604'),InlineKeyboardButton('Unit 10',url='https://t.me/ictstudenthelper/605')],
+    [InlineKeyboardButton('🛑Unit 1🛑',url='https://t.me/ictstudenthelper/594'),InlineKeyboardButton('🛑Unit 2🛑',url='https://t.me/ictstudenthelper/595')],
+    [InlineKeyboardButton('🛑Unit 3🛑',url='https://t.me/ictstudenthelper/596'),InlineKeyboardButton('🛑Unit 4🛑',url='https://t.me/ictstudenthelper/598')],
+    [InlineKeyboardButton('🛑Unit 5🛑',url='https://t.me/ictstudenthelper/598'),InlineKeyboardButton('🛑Unit 6🛑',url='https://t.me/ictstudenthelper/601')],
+    [InlineKeyboardButton('🛑Unit 7🛑',url='https://t.me/ictstudenthelper/602'),InlineKeyboardButton('🛑Unit 8🛑',url='https://t.me/ictstudenthelper/603')],
+    [InlineKeyboardButton('🛑Unit 9🛑',url='https://t.me/ictstudenthelper/604'),InlineKeyboardButton('🛑Unit 10🛑',url='https://t.me/ictstudenthelper/605')],
     [InlineKeyboardButton('⬅️BACK',callback_data='B0002')],
     [InlineKeyboardButton('SUBJECT MENU',callback_data='A0001'),InlineKeyboardButton('START MENU',callback_data='A0001')],
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
 B00100_TEXT='🔥Bio Resource Books (OLD)22/23🔥'
+B00101_BUTTONS=[
+    [InlineKeyboardButton('🛑Unit 1🛑',url='https://t.me/ictstudenthelper/673'),InlineKeyboardButton('🛑Unit 2🛑',url='https://t.me/ictstudenthelper/674')],
+    [InlineKeyboardButton('🛑Unit 3🛑',url='https://t.me/ictstudenthelper/675'),InlineKeyboardButton('🛑Unit 4🛑',url='https://t.me/ictstudenthelper/676')],
+    [InlineKeyboardButton('🛑Unit 5🛑',url='https://t.me/ictstudenthelper/677'),InlineKeyboardButton('🛑Unit 6🛑',url='https://t.me/ictstudenthelper/679')],
+    [InlineKeyboardButton('🛑Unit 7🛑',url='https://t.me/ictstudenthelper/680'),InlineKeyboardButton('🛑Unit 8🛑',url='https://t.me/ictstudenthelper/681')],
+    [InlineKeyboardButton('🛑Unit 9🛑',url='https://t.me/ictstudenthelper/682'),InlineKeyboardButton('🛑Unit 10🛑',url='https://t.me/ictstudenthelper/683')],
+    [InlineKeyboardButton('⬅️BACK',callback_data='B0002')],
+    [InlineKeyboardButton('SUBJECT MENU',callback_data='A0001'),InlineKeyboardButton('START MENU',callback_data='A0001')],
+    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
+]
+B00101_TEXT='🔥Bio Resource Books (2024)🔥'
 E0001_BUTTONS=[
     [InlineKeyboardButton('පසුගිය ප්‍රශ්නපත්‍ර',callback_data='E0005')],
     [InlineKeyboardButton('පසුගිය ප්‍රශ්නපත්‍ර වල පිලිතුරු',callback_data='E0006')],
@@ -1322,6 +1332,16 @@ async def callback_query(client: Client, query: CallbackQuery):
         try:
             await query.edit_message_text(
                 B00100_TEXT,
+                reply_markup=reply_markup
+            )
+        except MessageNotModified:
+            pass
+
+    elif query.data=='B00101':
+        reply_markup=InlineKeyboardMarkup(B00101_BUTTONS)
+        try:
+            await query.edit_message_text(
+                B00101_TEXT,
                 reply_markup=reply_markup
             )
         except MessageNotModified:
