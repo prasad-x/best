@@ -1,4 +1,23 @@
 from re import I
+from subprocess import call
+from pyrogram.errors import PeerIdInvalid
+from pyrogram.types import Message, User
+import os
+from random import randint
+from urllib.parse import urlparse
+from pyrogram import Client, filters
+from pyrogram.errors import FloodWait, MessageNotModified
+from pyrogram.types import *
+from random import choice
+from pyrogram import filters
+from pyrogram.errors.exceptions.bad_request_400 import (
+    ChatAdminRequired,
+    PeerIdInvalid,
+    UsernameNotOccupied,
+    UserNotParticipant,
+)
+from pyrogram.types import Update
+from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboardMarkup
 from datetime import datetime
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
@@ -6,14 +25,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from pyrogram.types import ChatPermissions
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultArticle, InputTextMessageContent
-from backports.zoneinfo import ZoneInfo
-from datetime import datetime
-import os
-import time
-import pytz
-sl = pytz.timezone("Asia/Colombo") 
-fmt='%Y-%m-%d %H:%M:%S'
-
+from pyrogram.raw.types import UpdateBotCallbackQuery
 
 
 bot = Client(
@@ -25,9 +37,6 @@ bot = Client(
 )
 
 
-
-
-    
 
 
 
@@ -98,6 +107,7 @@ A0001_BUTTONS=[
     [InlineKeyboardButton('ICT',callback_data='A0004')],
     [InlineKeyboardButton('MATHS',callback_data='A0005')],
     [InlineKeyboardButton('PHYSICS',callback_data='A0006')],
+    [InlineKeyboardButton('CHEMISTRY',callback_data='A010')],
     [InlineKeyboardButton('BIOLOGY',callback_data='A0007')],
     [InlineKeyboardButton('ET',callback_data='A0008')],
     [InlineKeyboardButton('SFT',callback_data='A0009')],
@@ -106,6 +116,50 @@ A0001_BUTTONS=[
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
 
+A010_BUTTONS=[
+    [InlineKeyboardButton('PAPERS',callback_data='CH0001'),InlineKeyboardButton('NOTES',callback_data='CH0002')],
+    [InlineKeyboardButton('⬅️BACK',callback_data='A0001'),InlineKeyboardButton('START MENU',callback_data='A010')],
+    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
+]
+A010_TEXT='🔥CHEMISTRY MENU🔥'
+CH0001_BUTTONS=[
+    [InlineKeyboardButton('පසුගිය ප්‍රශ්නපත්‍ර',callback_data='CH00001')],
+    [InlineKeyboardButton('පසුගිය ප්‍රශ්නපත්‍ර වල පිලිතුරු',callback_data='CH00002')],
+    [InlineKeyboardButton('⬅️BACK',callback_data='A0004'),InlineKeyboardButton('SUBJECT MENU',callback_data='A010')],
+    [InlineKeyboardButton('START MENU',callback_data='A0001')],
+    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
+]
+CH00001_BUTTONS=[
+    [InlineKeyboardButton('1990 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('1991 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('1992 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('1993 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('1994 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('1995 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('1996 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('1997 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('1998 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('1999 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('2000 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2001 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('2002 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2003 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('2004 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2005 ප්‍රශ්නපත්‍රය',url='')],
+    
+    [InlineKeyboardButton('PG NO:1',callback_data='1'),InlineKeyboardButton('⏩',callback_data='CH200001')],
+    [InlineKeyboardButton('⬅️BACK',callback_data='CH0001'),InlineKeyboardButton('SUBJECT MENU',callback_data='A010')],
+    [InlineKeyboardButton('START MENU',callback_data='A0001')],
+    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
+]
+CH00001_TEXT='Chemistry Past Papers page 01'
+CH200001_BUTTONS=[
+    [InlineKeyboardButton('2006 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2007 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('2008 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2009 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('2010 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2011 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('2012 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2013 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('2014 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2015 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('2016 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2017 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('2018 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2019 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('2020 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2021 ප්‍රශ්නපත්‍රය',url='')],
+    [InlineKeyboardButton('⏪',callback_data='CH00001'),InlineKeyboardButton('PG NO:2',callback_data='2')],
+    [InlineKeyboardButton('⬅️BACK',callback_data='CH0001'),InlineKeyboardButton('SUBJECT MENU',callback_data='A010')],
+    [InlineKeyboardButton('START MENU',callback_data='A0001')],
+    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
+]
+CH200001_TEXT='Chemistry Past Papers page 02'
 #ict
 A0004_BUTTONS=[
     [InlineKeyboardButton('PAPERS',callback_data='A0010'),InlineKeyboardButton('NOTES',callback_data='A0011')],
@@ -122,6 +176,7 @@ A0005_BUTTONS=[
 #physics
 A0006_BUTTONS=[
     [InlineKeyboardButton('පේසුරු වර්ගීකරණය කල',callback_data='PH0001')],
+    [InlineKeyboardButton('PAST PAPERS',callback_data=''),InlineKeyboardButton('MARKINGS',callback_data='')]
     [InlineKeyboardButton('⬅️BACK',callback_data='A0001'),InlineKeyboardButton('START MENU',callback_data='A0001')],
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
@@ -885,7 +940,16 @@ E0006_BUTTONS=[
     [InlineKeyboardButton('SUBJECT MENU',callback_data='A0001'),InlineKeyboardButton('START MENU',callback_data='A0001')],
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
-E0006_TEXT='build in progress🛠'
+E0006_TEXT='ET MARKINGS'
+E0006_BUTTONS=[
+    [InlineKeyboardButton('2015 පිලිතුරුපත්‍රය',url='https://t.me/ictstudenthelper/693'),InlineKeyboardButton('2016 පිලිතුරුපත්‍රය',url='https://t.me/ictstudenthelper/694')],
+    [InlineKeyboardButton('2017 පිලිතුරුපත්‍රය',url='https://t.me/ictstudenthelper/695'),InlineKeyboardButton('2018 පිලිතුරුපත්‍රය',url='https://t.me/ictstudenthelper/696')],
+    [InlineKeyboardButton('2019 පිලිතුරුපත්‍රය',url='https://t.me/ictstudenthelper/697')],
+    [InlineKeyboardButton('⬅️BACK',callback_data='E0001')],
+    [InlineKeyboardButton('SUBJECT MENU',callback_data='A0001'),InlineKeyboardButton('START MENU',callback_data='MAIN')],
+    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
+    
+]
 
 S0001_TEXT='SFT PAPERS'
 S0001_BUTTONS=[
@@ -926,6 +990,8 @@ EC0006_TEXT=''
 
 @bot.on_message(filters.command('menu')& filters.group) #start
 def start(bot, message):
+    
+    
     text = START_MESSAGE
     reply_markup = InlineKeyboardMarkup(START_BUTTONS)
     message.reply(
@@ -936,12 +1002,79 @@ def start(bot, message):
 
 
 
-                
 
 
-                    
+
+infotext = (
+    "**[{full_name}](tg://user?id={user_id})**\n"
+    " * UserID: `{user_id}`\n"
+    " * First Name: `{first_name}`\n"
+    " * Last Name: `{last_name}`\n"
+    " * Username: `{username}`\n"
+    " * Last Online: `{last_online}`\n"
+    " * Bio: {bio}"
+)
+
+
+def LastOnline(user: User):
+    if user.is_bot:
+        return ""
+    elif user.status == "recently":
+        return "Recently"
+    elif user.status == "within_week":
+        return "Within the last week"
+    elif user.status == "within_month":
+        return "Within the last month"
+    elif user.status == "long_time_ago":
+        return "A long time ago :("
+    elif user.status == "online":
+        return "Currently Online"
+    elif user.status == "offline":
+        return datetime.fromtimestamp(user.status.date).strftime(
+            "%a, %d %b %Y, %H:%M:%S"
+        )
+
+
+def FullName(user: User):
+    return user.first_name + " " + user.last_name if user.last_name else user.first_name
+
+
+@bot.on_message(filters.command("whois"))
+async def whois(client, message):
+    cmd = message.command
+    if not message.reply_to_message and len(cmd) == 1:
+        get_user = message.from_user.id
+    elif len(cmd) == 1:
+        get_user = message.reply_to_message.from_user.id
+    elif len(cmd) > 1:
+        get_user = cmd[1]
+        try:
+            get_user = int(cmd[1])
+        except ValueError:
+            pass
+    try:
+        user = await client.get_users(get_user)
+    except PeerIdInvalid:
+        await message.reply("I don't know that User.")
+        return
+    desc = await client.get_chat(get_user)
+    desc = desc.description
+    await message.reply_text(
+        infotext.format(
+            full_name=FullName(user),
+            user_id=user.id,
+            user_dc=user.dc_id,
+            first_name=user.first_name,
+            last_name=user.last_name if user.last_name else "",
+            username=user.username if user.username else "",
+            last_online=LastOnline(user),
+            bio=desc if desc else "`No bio set up.`",
+        ),
+        disable_web_page_preview=True,
+    )
+
 @bot.on_callback_query()
-async def callback_query(client: Client, query: CallbackQuery):
+async def UpdateBotCallbackQuery(client: Client, query: CallbackQuery):
     if query.data=="A0001":
         reply_markup = InlineKeyboardMarkup(A0001_BUTTONS)
         try:
@@ -952,9 +1085,33 @@ async def callback_query(client: Client, query: CallbackQuery):
         except MessageNotModified:
             pass
 
-
-
-    
+    elif query.data=="A010":
+        reply_markup=InlineKeyboardMarkup(A010_BUTTONS)
+        try:
+            await query.edit_message_text(
+                A010_TEXT,
+                reply_markup=reply_markup
+            )
+        except MessageNotModified:
+            pass
+    elif query.data=="CH00001":
+        reply_markup=InlineKeyboardMarkup(CH00001_BUTTONS)
+        try:
+            await query.edit_message_text(
+                CH00001_TEXT,
+                reply_markup=reply_markup
+            )
+        except MessageNotModified:
+            pass
+    elif query.data=="CH200001":
+        reply_markup=InlineKeyboardMarkup(CH200001_BUTTONS)
+        try:
+            await query.edit_message_text(
+                CH200001_TEXT,
+                reply_markup=reply_markup
+            )
+        except MessageNotModified:
+            pass
 
     elif query.data=="A0004":
         reply_markup=InlineKeyboardMarkup(A0004_BUTTONS)
@@ -1421,14 +1578,7 @@ async def callback_query(client: Client, query: CallbackQuery):
 
     
     elif query.data=="CLOSE":
-        reply_markup=InlineKeyboardButton(START_BUTTONS)
-        try:
-            await query.edit_message_text(
-                CLOSE_TEXT,
-                reply_markup=reply_markup
-            )
-        except MessageNotModified:
-            pass
+        await query.message.delete()
         
 
 
@@ -1449,14 +1599,6 @@ def inline_query(client, inline_query):
                     "⭕️GROUP MENU⭕️ "
                 ),
                 reply_markup=InlineKeyboardMarkup(START_BUTTONS)
-            ),
-            InlineQueryResultArticle(
-                title="Count Down",
-                description="🔥උසස් පෙළ විභාගයට තව🔥",
-                input_message_content=InputTextMessageContent(
-                    "🔥උසස් පෙළ විභාගයට තව🔥"
-                ),
-                reply_markup=InlineKeyboardMarkup(update_buttons)
             ),
         ],
         cache_time=1
