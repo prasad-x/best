@@ -32,7 +32,7 @@ bot = Client(
     'all subject bot',
     api_id=7009965,
     api_hash="06651b174c4f0591deb0ed1e5663c996",
-    bot_token='5724082045:AAHNECRhsDAK0yKMD6Gpksp9723usXnTYBk'
+    bot_token='5829603891:AAEuwOF5MiBv66UEbpGVmrUfRy0b4TsurCg'
     
 )
 
@@ -98,8 +98,8 @@ IT010_TEXT='2020 ප්‍රශ්න පත්‍ර සාකච්ඡාව\
 
 START_BUTTONS=[
     [InlineKeyboardButton('ENTER SUBJECT MENU',callback_data='A0001')],
-    [InlineKeyboardButton('SHARE CHANNEL',url='https://t.me/share/url?url=https%3A//t.me/BioVideoFullSyllubus')],
-    [InlineKeyboardButton('SHARE GROUP',url='https://t.me/share/url?url=https://t.me/+ug3NYtaYPGY2MGE1')],
+    [InlineKeyboardButton('SHARE CHANNEL',url='https://t.me/share/url?url=https://t.me/BesT_MoTivatioN_M')],
+    [InlineKeyboardButton('SHARE GROUP',url='https://t.me/share/url?url=https://t.me/best_motivation_C')],
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
 # subject menu
@@ -107,7 +107,6 @@ A0001_BUTTONS=[
     [InlineKeyboardButton('ICT',callback_data='A0004')],
     [InlineKeyboardButton('MATHS',callback_data='A0005')],
     [InlineKeyboardButton('PHYSICS',callback_data='A0006')],
-    [InlineKeyboardButton('CHEMISTRY',callback_data='A010')],
     [InlineKeyboardButton('BIOLOGY',callback_data='A0007')],
     [InlineKeyboardButton('ET',callback_data='A0008')],
     [InlineKeyboardButton('SFT',callback_data='A0009')],
@@ -121,45 +120,8 @@ A010_BUTTONS=[
     [InlineKeyboardButton('⬅️BACK',callback_data='A0001'),InlineKeyboardButton('START MENU',callback_data='A010')],
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
-A010_TEXT='🔥CHEMISTRY MENU🔥'
-CH0001_BUTTONS=[
-    [InlineKeyboardButton('පසුගිය ප්‍රශ්නපත්‍ර',callback_data='CH00001')],
-    [InlineKeyboardButton('පසුගිය ප්‍රශ්නපත්‍ර වල පිලිතුරු',callback_data='CH00002')],
-    [InlineKeyboardButton('⬅️BACK',callback_data='A0004'),InlineKeyboardButton('SUBJECT MENU',callback_data='A010')],
-    [InlineKeyboardButton('START MENU',callback_data='A0001')],
-    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
-]
-CH00001_BUTTONS=[
-    [InlineKeyboardButton('1990 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('1991 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('1992 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('1993 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('1994 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('1995 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('1996 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('1997 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('1998 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('1999 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('2000 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2001 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('2002 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2003 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('2004 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2005 ප්‍රශ්නපත්‍රය',url='')],
-    
-    [InlineKeyboardButton('PG NO:1',callback_data='1'),InlineKeyboardButton('⏩',callback_data='CH200001')],
-    [InlineKeyboardButton('⬅️BACK',callback_data='CH0001'),InlineKeyboardButton('SUBJECT MENU',callback_data='A010')],
-    [InlineKeyboardButton('START MENU',callback_data='A0001')],
-    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
-]
-CH00001_TEXT='Chemistry Past Papers page 01'
-CH200001_BUTTONS=[
-    [InlineKeyboardButton('2006 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2007 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('2008 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2009 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('2010 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2011 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('2012 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2013 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('2014 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2015 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('2016 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2017 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('2018 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2019 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('2020 ප්‍රශ්නපත්‍රය',url=''),InlineKeyboardButton('2021 ප්‍රශ්නපත්‍රය',url='')],
-    [InlineKeyboardButton('⏪',callback_data='CH00001'),InlineKeyboardButton('PG NO:2',callback_data='2')],
-    [InlineKeyboardButton('⬅️BACK',callback_data='CH0001'),InlineKeyboardButton('SUBJECT MENU',callback_data='A010')],
-    [InlineKeyboardButton('START MENU',callback_data='A0001')],
-    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
-]
-CH200001_TEXT='Chemistry Past Papers page 02'
+
+
 #ict
 A0004_BUTTONS=[
     [InlineKeyboardButton('PAPERS',callback_data='A0010'),InlineKeyboardButton('NOTES',callback_data='A0011')],
@@ -1588,21 +1550,6 @@ async def UpdateBotCallbackQuery(client: Client, query: CallbackQuery):
                 
 
 
-@bot.on_inline_query()
-def inline_query(client, inline_query):
-    inline_query.answer(
-        results=[
-            InlineQueryResultArticle(
-                title="START BOT in this chat",
-                description="⭕️GROUP MENU",
-                input_message_content=InputTextMessageContent(
-                    "⭕️GROUP MENU⭕️ "
-                ),
-                reply_markup=InlineKeyboardMarkup(START_BUTTONS)
-            ),
-        ],
-        cache_time=1
-    )
 
 
 print("bot alive")
