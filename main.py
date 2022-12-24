@@ -950,7 +950,7 @@ EC0005_BUTTONS=[
 EC0006_TEXT=''
 
 
-@bot.on_message(filters.command('menu')& filters.group) #start
+@bot.on_message(filters.regex('menu')& filters.group) #start
 def start(bot, message):
     
     
