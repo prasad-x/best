@@ -100,8 +100,16 @@ START_BUTTONS=[
     [InlineKeyboardButton('ENTER SUBJECT MENU',callback_data='A0001')],
     [InlineKeyboardButton('SHARE CHANNEL',url='https://t.me/share/url?url=https://t.me/BesT_MoTivatioN_M')],
     [InlineKeyboardButton('SHARE GROUP',url='https://t.me/share/url?url=https://t.me/best_motivation_C')],
+    [InlineKeyboardButton('About',callback_data='about')],
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
+
+ABOUT_BUTTONS=[
+    [InlineKeyboardButtons('GO BACK',callback_data='MAIN')],
+    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
+]
+
+ABOUT_TEXT=f"<b>○ Creator : @PUBUDUPRASAD \n○ Language : <code>Python3</code></a>\n\n○ Channel : @BesT_MoTivatioN_M</b>"
 # subject menu
 A0001_BUTTONS=[
     [InlineKeyboardButton('ICT',callback_data='A0004')],
@@ -115,11 +123,6 @@ A0001_BUTTONS=[
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
 
-A010_BUTTONS=[
-    [InlineKeyboardButton('PAPERS',callback_data='CH0001'),InlineKeyboardButton('NOTES',callback_data='CH0002')],
-    [InlineKeyboardButton('⬅️BACK',callback_data='A0001'),InlineKeyboardButton('START MENU',callback_data='A010')],
-    [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
-]
 
 
 #ict
@@ -138,7 +141,6 @@ A0005_BUTTONS=[
 #physics
 A0006_BUTTONS=[
     [InlineKeyboardButton('පේසුරු වර්ගීකරණය කල',callback_data='PH0001')],
-    [InlineKeyboardButton('PAST PAPERS',callback_data=''),InlineKeyboardButton('MARKINGS',callback_data='')]
     [InlineKeyboardButton('⬅️BACK',callback_data='A0001'),InlineKeyboardButton('START MENU',callback_data='A0001')],
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
@@ -1160,6 +1162,16 @@ async def UpdateBotCallbackQuery(client: Client, query: CallbackQuery):
         try:
             await query.edit_message_text(
                 A0022_TEXT,
+                reply_markup=reply_markup
+            )
+        except MessageNotModified:
+            pass
+        
+    elif query.data=='about':
+        reply_markup=InlineKeyboardMarkup(ABOUT_BUTTONS)
+        try:
+            await query.edit_message_text(
+                ABOUT_TEXT,
                 reply_markup=reply_markup
             )
         except MessageNotModified:
