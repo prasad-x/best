@@ -105,7 +105,7 @@ START_BUTTONS=[
 ]
 
 ABOUT_BUTTONS=[
-    [InlineKeyboardButtons('GO BACK',callback_data='MAIN')],
+    [InlineKeyboardButton('GO BACK',callback_data='MAIN')],
     [InlineKeyboardButton('❌CLOSE❌',callback_data='CLOSE')],
 ]
 
